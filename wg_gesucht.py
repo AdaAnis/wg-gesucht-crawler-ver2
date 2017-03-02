@@ -145,7 +145,7 @@ def fetch_filters(driver, log_output_queue):
     for link in filter_links:
         href = link.get('href')
         if href is not None:
-            if 'wohnraumangebote.html?filter=' in href:
+            if 'wohnraumangebote.html?user' in href:
                 filters_to_check.append(href)
 
     if len(filters_to_check) < 1:

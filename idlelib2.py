@@ -5,8 +5,8 @@
 
 from tkinter import *
 
-class ToolTipBase:
 
+class ToolTipBase:
     def __init__(self, button):
         self.button = button
         self.tipwindow = None
@@ -59,28 +59,33 @@ class ToolTipBase:
         if tw:
             tw.destroy()
 
+
 class ToolTip(ToolTipBase):
     def __init__(self, button, text):
         ToolTipBase.__init__(self, button)
         self.text = text
+
     def showcontents(self):
         ToolTipBase.showcontents(self, self.text)
+
 
 class ListboxToolTip(ToolTipBase):
     def __init__(self, button, items):
         ToolTipBase.__init__(self, button)
         self.items = items
+
     def showcontents(self):
         listbox = Listbox(self.tipwindow, background="#ffffe0")
         listbox.pack()
         for item in self.items:
             listbox.insert(END, item)
 
+
 def _tooltip(parent):
     root = Tk()
     root.title("Test tooltip")
     width, height, x, y = list(map(int, re.split('[x+]', parent.geometry())))
-    root.geometry("+%d+%d"%(x, y + 150))
+    root.geometry("+%d+%d" % (x, y + 150))
     label = Label(root, text="Place your mouse over buttons")
     label.pack()
     button1 = Button(root, text="Button 1")
@@ -88,10 +93,12 @@ def _tooltip(parent):
     button1.pack()
     button2.pack()
     ToolTip(button1, "This is tooltip text for button1.")
-    ListboxToolTip(button2, ["This is","multiple line",
-                            "tooltip text","for button2"])
+    ListboxToolTip(button2, ["This is", "multiple line",
+                             "tooltip text", "for button2"])
     root.mainloop()
 
+
 if __name__ == '__main__':
-    from idlelib.idle_test.htest import run
+    from idlelib2.idle_test.htest import run
+
     run(_tooltip)

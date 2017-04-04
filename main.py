@@ -7,7 +7,7 @@ import queue
 import multiprocessing
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox
-from idlelib import ToolTip
+from idlelib2 import ToolTip
 from PIL import Image, ImageTk
 import psutil
 import wg_gesucht

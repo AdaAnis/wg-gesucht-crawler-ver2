@@ -227,8 +227,8 @@ def fetch_ads(driver, log_output_queue, filters):
                 for item in search_results:
                     links = item.find_all('a')
                     #  only get ads less than 2 days old
-                    if datetime.strptime(links[2].text.strip(), "%d.%m.%y") >= datetime.now() - timedelta(days=2):
-                        complete_href = "https://www.wg-gesucht.de/{}".format(links[2].get('href'))
+                    if datetime.strptime(links[1].text.strip(), "%d.%m.%y") >= datetime.now() - timedelta(days=2):
+                        complete_href = "https://www.wg-gesucht.de/{}".format(links[1].get('href'))
                         if complete_href not in url_list:
                             already_exists = already_sent(complete_href)
                             if not already_exists:
